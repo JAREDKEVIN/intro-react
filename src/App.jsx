@@ -1,6 +1,5 @@
 import React from "react";
 import Table from "./Table";
-import List from "./List";
 /*Add import statement here*/
 
 
@@ -50,7 +49,43 @@ class App extends React.Component {
   render() {
     let tabChoice = <div />;
 
-   
+    /*Render assignments*/
+    if (this.state.buttonClicked === "assignments") {
+      tabChoice = (
+        <List
+          placeholder="Add Assignment..."
+          currList={this.state.assignments}
+          addFunction={this.addAssignment}
+          title="Assignments"
+        />
+      );
+    }
+
+    /* Change below to render students*/
+
+    /*if (this.state.buttonClicked === "students") {
+      tabChoice = (
+        <List
+          placeholder="Add Assignment..." 
+          currList={this.state.assignments}
+          addFunction={this.addAssignment}
+          title="Student Roster"
+        />
+      );
+    }*/
+
+    /* Uncomment lines below to render grades*/
+    /*if (this.state.buttonClicked === "grades") {
+      tabChoice = (
+        <Table
+          tableNames={this.state.assignments}
+          rows={this.state.students}
+          addFunction={this.addGrade}
+          data={this.state.grades}
+        />
+      );
+    }*/
+
     return (
       <div>
         <div className="Box Box--spacious f4">
